@@ -1,28 +1,39 @@
-let inView = 'board'
+import { createBoardSection } from './board.js';
+import { createChecklistSection } from './checklist.js';
 
-const checklistBtn = document.getElementById('checklist');
+// state
+let tasks = [
+    { text: 'Task 1', done: false },
+    { text: 'Task 2', done: true }
+];
+let view = 'board';
+
+// buttons
 const boardBtn = document.getElementById('board');
+const checklistBtn = document.getElementById('checklist');
 
-const checklistSection = document.getElementById('checklistSection');
-const boardSection = document.getElementById('boardSection');
+// create sections
+const boardSection = createBoardSection(tasks);
+const checklistSection = createChecklistSection(tasks);
 
-checklistBtn.addEventListener('click', ()=>setView('checklist'))
-boardBtn.addEventListener('click', ()=>setView('board'))
+// append sections to body AFTER buttons exist
+document.body.appendChild(boardSection);
+document.body.appendChild(checklistSection);
 
-function setView(mode){
-    inView = mode 
+// toggle logic
+function setView(mode) {
+    view = mode;
 
-    checklistBtn.setAttribute('aria-pressed', mode === 'checklist');
+    boardSection.classList.toggle('hidden', mode !== 'board');
+    checklistSection.classList.toggle('hidden', mode !== 'checklist');
+
     boardBtn.setAttribute('aria-pressed', mode === 'board');
-
-    document.getElementById('checklist').classList.toggle('hidden', mode !== 'checklist')
-    document.getElementById('board').classList.toggle('hidden', mode !== 'board')
-
-    document.getElementById('checklistSection').classList.toggle('hidden', mode !== 'checklistSection');
-    document.getElementById('boardBtn').classList.toggle('hidden', mode !== 'boardBtn');
-    // saving on chrome specifc storage 
-    chrome.storage.local.set({ inView });
+    checklistBtn.setAttribute('aria-pressed', mode === 'checklist');
 }
 
-// add an area layer - when we press note button it will open a note pad section 
+// event listeners
+boardBtn.addEventListener('click', () => setView('board'));
+checklistBtn.addEventListener('click', () => setView('checklist'));
 
+// initial view
+setView(view);
