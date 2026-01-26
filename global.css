@@ -16,8 +16,14 @@ body {
     width: fit-content;
 }
 
+/* Hover effect ONLY for inactive button */
+.view-toggle button:not([aria-pressed="true"]):hover {
+  background: #d6d6d6; /* light grey hover */
+}
+
 /* Buttons */
 .view-toggle button {
+    transition: background-color 0.15s ease, box-shadow 0.2s ease;
     border: none;
     background: transparent;
     padding: 8px 20px;
