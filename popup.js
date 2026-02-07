@@ -1,9 +1,9 @@
-// popup.js
-import { createBoardSection } from './board.js';
-import { createChecklistSection } from './checklist.js';
-import { createNoteSection } from './note.js';
-import { loginWithGoogle } from './login.js'; // only login helper
-import { supabase } from './supabaseClient.js';
+// popup.js this is the main js page that controls everything 
+import { createBoardSection } from './components/board.js';
+import { createChecklistSection } from './components/checklist.js';
+import { createNoteSection } from './components/note.js';
+import { loginWithGoogle } from './auth/login.js'; // only login helper
+import { supabase } from './auth/supabaseClient.js';
 
 let tasks = [];
 let view = 'board';

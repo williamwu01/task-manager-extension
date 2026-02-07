@@ -13087,7 +13087,7 @@ const supabase = createClient(
     SUPABASE_PUBLISHABLE_KEY
 );
 
-// popup.js
+// popup.js this is the main js page that controls everything 
 
 let tasks = [];
 let view = 'board';

@@ -1,3 +1,4 @@
+//Handle Google login with Supabase outside the popup UI and keep the user session saved.
 import { supabase } from './supabaseClient.js';
 
 chrome.runtime.onInstalled.addListener(() => {
