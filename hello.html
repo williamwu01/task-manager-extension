@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./global.css">
-  <script type="module" defer src="./popup.js"></script>
-  </head>
-  <body>
-    <!-- header section toggle menu to checklist instead. -->
-    <div class="view-toggle">
-      <div></div>
-      <button id="checklist" aria-controls="checklistView" aria-pressed="true">checklist</button>
-      <button id="board" aria-controls="boardView" aria-pressed="false">board</button>
-      <button id="notes" aria-pressed="false">Notes</button>
-
-    </div>
-    <!-- note taking menu -->
-    <!-- <textarea></textarea> -->
-    <h1>Task Buddy</h1>
-    <!-- we need input section & button to add -->
-    
-    <!-- section for board 2 sections 1 for complete -->
-    <!-- <section id="boardSection" class="hidden">
-      <h2>Board Section</h2>
-      <p>Tasks in board layout...</p>
-    </section>
-
-    <section id="checklistSection">
-      <h2>Checklist Section</h2>
-      <p>Tasks in checklist layout...</p>
-    </section> -->
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./global.css" />
+<script type="module" src="dist/popup.bundle.js" defer></script>
+</head>
+<body>
+  <div class="view-toggle">
+    <div></div>
+    <button id="checklist" aria-controls="checklistView" aria-pressed="true">Checklist</button>
+    <button id="board" aria-controls="boardView" aria-pressed="false">Board</button>
+    <button id="notes" aria-pressed="false">Notes</button>
+  </div>
+  <h1>Task Buddy</h1>
+</body>
 </html>

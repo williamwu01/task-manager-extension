@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+*.bundle.js
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Mac system files
+.DS_Store
+
+# Environment files (if you use them)
+.env
+.env.local
+.env.*.local
+
+# VS Code settings
+.vscode/
+
+# Supabase generated files (if any)
+supabase/.temp/
+supabase/migrations/
+supabase/seeders/

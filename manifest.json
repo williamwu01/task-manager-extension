@@ -3,9 +3,28 @@
   "description": "Base Level Extension",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["storage"],
+  "permissions": ["storage", "identity"],
+  "icons": {
+    "16": "taskb.png",
+    "32": "taskb.png",
+    "48": "taskb48.png",
+    "128": "taskb.png"
+  },
+  "background": {
+    "service_worker": "dist/background.bundle.js",
+    "type": "module"
+  },
   "action": {
     "default_popup": "hello.html",
-    "default_icon": "hello_extensions.png"
+    "default_icon": {
+      "16": "taskb.png",
+      "32": "taskb.png",
+      "48": "taskb48.png",
+      "128": "taskb.png"
+    }
+  },
+  "oauth2": {
+    "client_id": "483562784410-jpm3oag73cmvm9tf2avnka0p70c14bm0.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
   }
 }
