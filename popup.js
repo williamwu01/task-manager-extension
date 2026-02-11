@@ -4,9 +4,35 @@ import { createChecklistSection } from './components/checklist.js';
 import { createNoteSection } from './components/note.js';
 import { loginWithGoogle } from './auth/login.js'; // only login helper
 import { supabase } from './auth/supabaseClient.js';
+import { loadTasks, saveTasks, addTask, removeTask, updateTask } from './components/task.js';
+import { setPopupBackground, listenForSystemColorChange, setManualTheme} from './components/systemColor.js';
 
-let tasks = [];
+let tasks = await loadTasks();
 let view = 'board';
+
+// controling the functions of the system background 
+setPopupBackground();
+listenForSystemColorChange();
+
+const themeSwitcher = document.getElementById('themeSwitcher');
+
+if (themeSwitcher) {
+  themeSwitcher.onchange = (e) => {
+    const theme = e.target.value
+    setManualTheme(theme)
+    chrome.storage.local.set({themePreference: theme});
+  }
+
+//on load check for saved theme pref 
+chrome.storage.local.get('themePreference', ({themePreference}) =>{
+  if (themePreference) {
+    themeSwitcher.value = themePreference;
+    setManualTheme(themePreference);
+  } else {
+    setManualTheme(themePreference.value) // fall back to manual 
+  }
+})
+}
 
 // UI buttons
 const boardBtn = document.getElementById('board');

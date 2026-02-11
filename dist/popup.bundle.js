@@ -13087,10 +13087,72 @@ const supabase = createClient(
     SUPABASE_PUBLISHABLE_KEY
 );
 
+//get results from the local storage 
+async function loadTasks() {
+    const result = await chrome.storage.local.get('tasks');
+    return result.tasks || [];
+}
+
+let manualTheme = null;
+
+//set the popup background to match system light/dark mode 
+function setPopupBackground() {
+    let isDark;
+    if(manualTheme === 'light') {
+        isDark = false;
+    } else if ( manualTheme === 'dark') {
+        isDark = true;
+    } else {
+        //follows system theme , checks by dark 
+        isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    document.body.style.background = isDark ? '#232323' : '#fff';
+}
+//listen for system color scheme change and update background
+function listenForSystemColorChange() {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if (!manualTheme) setPopupBackground();
+    });
+}
+
+function setManualTheme(theme) {
+    // theme: 'light', 'dark', or 'system'
+    if ( theme === 'system') { 
+        manualTheme = null;
+    } else {
+        manualTheme = theme;
+    }
+    setPopupBackground();
+}
+
 // popup.js this is the main js page that controls everything 
 
-let tasks = [];
+let tasks = await loadTasks();
 let view = 'board';
+
+// controling the functions of the system background 
+setPopupBackground();
+listenForSystemColorChange();
+
+const themeSwitcher = document.getElementById('themeSwitcher');
+
+if (themeSwitcher) {
+  themeSwitcher.onchange = (e) => {
+    const theme = e.target.value;
+    setManualTheme(theme);
+    chrome.storage.local.set({themePreference: theme});
+  };
+
+//on load check for saved theme pref 
+chrome.storage.local.get('themePreference', ({themePreference}) =>{
+  if (themePreference) {
+    themeSwitcher.value = themePreference;
+    setManualTheme(themePreference);
+  } else {
+    setManualTheme(themePreference.value); // fall back to manual 
+  }
+});
+}
 
 // UI buttons
 const boardBtn = document.getElementById('board');

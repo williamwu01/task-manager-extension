@@ -13,7 +13,7 @@ export default [
   },
   // Bundle background
   {
-    input: 'background.js',
+    input: 'auth/background.js',
     output: {
       file: 'dist/background.bundle.js',
       format: 'esm',

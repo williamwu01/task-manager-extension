@@ -13007,6 +13007,8 @@ const supabase = createClient(
     SUPABASE_PUBLISHABLE_KEY
 );
 
+//Handle Google login with Supabase outside the popup UI and keep the user session saved.
+
 chrome.runtime.onInstalled.addListener(() => {
   console.log('Background service worker running!');
 });

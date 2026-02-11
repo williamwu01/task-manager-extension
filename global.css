@@ -1,6 +1,7 @@
 body {
     width: 380px;   /* common extension width */
     min-height: 500px;
+    position: relative;
 }
 
 .hidden {
@@ -49,3 +50,9 @@ body {
 /* .view-toggle button:focus {
   box-shadow: 0 0 0 2px #4a90e2; 
 } */
+
+.theme-switcher {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}

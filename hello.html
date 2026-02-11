@@ -5,7 +5,12 @@
   <link rel="stylesheet" href="./global.css" />
 <script type="module" src="dist/popup.bundle.js" defer></script>
 </head>
-<body>
+<body class="overlay">
+<select id="themeSwitcher"" class="theme-switcher">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+  <option value="system">System</option>
+</select>
   <div class="view-toggle">
     <div></div>
     <button id="checklist" aria-controls="checklistView" aria-pressed="true">Checklist</button>
