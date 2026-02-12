@@ -12,6 +12,9 @@ export function setPopupBackground() {
         isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
     document.body.style.background = isDark ? '#232323' : '#fff';
+    document.documentElement.style.setProperty('--color-title', isDark ? '#fff' : '#232323');
+    console.log('Set --color-title to', isDark ? '#fff' : '#232323');
+
 }
 //listen for system color scheme change and update background
 export function listenForSystemColorChange() {
