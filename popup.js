@@ -149,6 +149,21 @@ async function checkSession() {
   }
 }
 
+document.getElementById('popoutBtn').onclick = (e) => {
+  chrome.windows.create({
+    url: chrome.runtime.getURL('hello.html'),
+    type: 'popup',
+    width: 600,
+    height: 600
+  })
+  // option to close the pop up after
+  window.close();
+
+  if ('popoutBtn' === open) {
+    
+  }
+}
+
 // Check session when popup opens
 checkSession();
 

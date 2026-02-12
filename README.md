@@ -10,3 +10,4 @@ For more details, visit the [official tutorial](https://developer.chrome.com/doc
 3. Click the extension icon in the Chrome toolbar, then select the "Hello Extensions" extension. A popup will appear displaying the text "Hello Extensions".
 
 <!-- using npm run watch -->
+<!-- to check devtools properly without issues you need to have it refreshed and then right lick the popup window and click inspect there  -->

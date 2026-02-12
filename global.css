@@ -1,7 +1,21 @@
+:root {
+  --color-bg-light: #fff;
+  --color-bg-dark: #232323;
+  --color-accent: #4a90e2;
+  --color-border: #e0e0e0;
+  --color-hover: #d6d6d6;
+  --color-active: #f5f5f5;
+  --color-title: #232323;
+}
+
 body {
-    width: 380px;   /* common extension width */
+    width: 580px;   /* common extension width */
     min-height: 500px;
     position: relative;
+}
+
+h1 { 
+  color: var(--color-title);
 }
 
 .hidden {
@@ -12,14 +26,14 @@ body {
 .view-toggle {
     display: flex;
     border-radius: 999px;  
-    background: #e0e0e0;     
+    background: var(--color-border);     
     padding: 4px;
     width: fit-content;
 }
 
 /* Hover effect ONLY for inactive button */
 .view-toggle button:not([aria-pressed="true"]):hover {
-  background: #d6d6d6; /* light grey hover */
+  background: var(--color-hover); 
 }
 
 /* Buttons */
@@ -37,7 +51,7 @@ body {
 
 /* Active button based on ARIA */
 .view-toggle button[aria-pressed="true"] {
-    background: #ffffff;
+    background: var(--color-bg-light);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
@@ -50,9 +64,3 @@ body {
 /* .view-toggle button:focus {
   box-shadow: 0 0 0 2px #4a90e2; 
 } */
-
-.theme-switcher {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}

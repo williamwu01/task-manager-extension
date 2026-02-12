@@ -6,17 +6,20 @@
 <script type="module" src="dist/popup.bundle.js" defer></script>
 </head>
 <body class="overlay">
-<select id="themeSwitcher"" class="theme-switcher">
-  <option value="light">Light</option>
-  <option value="dark">Dark</option>
-  <option value="system">System</option>
-</select>
-  <div class="view-toggle">
-    <div></div>
-    <button id="checklist" aria-controls="checklistView" aria-pressed="true">Checklist</button>
-    <button id="board" aria-controls="boardView" aria-pressed="false">Board</button>
-    <button id="notes" aria-pressed="false">Notes</button>
+  <div class="">
+    <button id="popoutBtn" title="Open in new window">🗗</button>
+    <select id="themeSwitcher"" class="theme-switcher">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="system">System</option>
+    </select>
+    <div class="view-toggle">
+      <div></div>
+      <button id="checklist" aria-controls="checklistView" aria-pressed="true">Checklist</button>
+      <button id="board" aria-controls="boardView" aria-pressed="false">Board</button>
+      <button id="notes" aria-pressed="false">Notes</button>
+    </div>
   </div>
-  <h1>Task Buddy</h1>
+  <h1 class="title">Task Buddy</h1>
 </body>
 </html>
